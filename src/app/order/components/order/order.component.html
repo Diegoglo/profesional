@@ -1,0 +1,42 @@
+<mat-horizontal-stepper>
+    <mat-step>
+        <ng-template matStepLabel>Lista de sus productos.</ng-template>
+        <div *ngIf ="(products$ | async) as products"> <!-- Una vez te suscribas, por favor, cree una variable temporal en el template llamada product(con esto me ahorro suscripciones)-->
+            <p *ngIf="products.length === 0">No hay productos</p>
+            <div class="row" *ngFor="let product of products">
+                <div class="col-xs-12 col-sm-2 col-md-2">
+                    <div class="box">
+                        <p>IMAGEN</p>
+                        <img class="image" [src]="product.image" alt="">
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-5 col-md-5">
+                    <div class="box">
+                        <p>Nombre producto</p>
+                        {{ product.title }}
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-3 col-md-3">
+                    <div class="box">
+                        TOTAL: <label> <b>({{ product | cartrepeat }})</b> </label>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-5 col-md-5">
+                    <div class="box">
+                        <p>Precio Producto</p>
+                        {{ product.price }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </mat-step>
+
+    <mat-step>
+        <ng-template matStepLabel>Lista de sus productos.</ng-template>
+        <h1>nombreProducto</h1>
+    </mat-step>
+    <mat-step>
+        <ng-template matStepLabel>Lista de sus productos.</ng-template>
+        <h1>PrecioProducto</h1>
+    </mat-step>
+</mat-horizontal-stepper>

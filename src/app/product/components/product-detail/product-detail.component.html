@@ -1,0 +1,18 @@
+<div *ngIf="(product$ | async) as product"> <!-- mientras no exista un producto valido, no intente renderizar -->
+  <div>
+    <img [src]="product.image" alt="">
+  </div>
+  <div>
+    <ul>
+      <li>Nombre: {{ product.title }}</li>
+      <li>Precio: {{ product.price | currency }}</li>
+    </ul>
+    <p>{{ product.description }}</p>
+  </div>
+  <button (click) ="createProduct()">Crear producto</button>
+  <button (click) = "updateProduct()">Modificar producto</button>
+  <button (click) = "deleteProduct()">Eliminar producto</button>
+  <button (click) = "getRandomUsers()">Get random</button>
+
+
+</div>
